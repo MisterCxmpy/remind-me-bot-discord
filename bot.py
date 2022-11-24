@@ -30,6 +30,8 @@ async def on_ready():
 @client.command()
 async def remind(ctx, time, time_period):
 
+    user = await client.fetch_user(ctx.author.id)
+
     if time_period not in ["seconds", "minutes", "hours", "days", "weeks", "months", "years"]:
         return
 
@@ -54,9 +56,8 @@ async def remind(ctx, time, time_period):
     
     remind_time = current_time + time_change
 
-    print('Current UTC Time:', current_time + time_change)
+    message = f"{user.mention} Messaging you on " + str(remind_time)[:19] + " UTC to remind you of this comment."
 
-    await ctx.send("Messaging you on " + str(remind_time)[:19] + " UTC to remind you of this comment.")
-    
+    await ctx.channel.send(message)
 
 client.run(config["token"])
