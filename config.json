@@ -1,0 +1,5 @@
+{
+  "token": "YOUR_BOT_TOKEN_HERE",
+  "command_prefix": "YOUR_BOTS_COMMAND_PREFIX",
+  "application_id": "YOUR_APPLICATION_ID_HERE"
+}
